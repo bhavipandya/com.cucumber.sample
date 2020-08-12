@@ -7,9 +7,7 @@ import framework.webPages.HomePage;
 import framework.webPages.LoginPage;
 import org.testng.Assert;
 
-/**
- * Created by mohammadmuntakim.
- */
+
 public class LoginSD {
 
     private HomePage homePage = new HomePage();

@@ -3,6 +3,7 @@ package framework;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
@@ -90,12 +91,13 @@ public class MobileBasePage {
     protected void swipeScreenHorizontally(int times) {
 
         Dimension size = AppiumWrapper.getAppiumDriver().manage().window().getSize();
-        int anchor = size.height / 2;
-        int startPoint = (int) (size.width * 0.8);
-        int endPoint = (int) (size.width * 0.2);
+
+        int startY = size.height / 2;
+        int startX = (int) (size.width * 0.8);
+        int endX = (int) (size.width * 0.2);
         System.out.println("Size: " + size);
-        System.out.println("Start Point: " + startPoint);
-        System.out.println("End Point: " + endPoint);
+        System.out.println("Start Point: " + startX);
+        System.out.println("End Point: " + endX);
         TouchAction touchAction = new TouchAction(AppiumWrapper.getAppiumDriver());
         try {
             Thread.sleep(8000);
@@ -103,7 +105,8 @@ public class MobileBasePage {
             e.printStackTrace();
         }
         for (int i = 0; i < times; i++) {
-           // touchAction.press(startPoint, anchor).moveTo(endPoint, anchor).release().perform();
+           //touchAction.press(startPoint, anchor).moveTo(endPoint, anchor).release().perform();
+            touchAction.press(PointOption.point(startX,startY)).moveTo(PointOption.point(endX,startY)).release().perform();
         }
     }
 }

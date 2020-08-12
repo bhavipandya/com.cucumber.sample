@@ -19,7 +19,7 @@ public class BasePage {
 	public static WebElement webAction(final By locator) {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(SharedSD.getDriver())
 				.withTimeout(Duration.ofSeconds(15))
-				.pollingEvery(Duration.ofSeconds(1))
+				.pollingEvery(Duration.ofSeconds(7))
 				.ignoring(NoSuchElementException.class)
 				.ignoring(StaleElementReferenceException.class)
 				.ignoring(ElementClickInterceptedException.class)

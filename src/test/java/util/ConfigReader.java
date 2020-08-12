@@ -18,6 +18,14 @@ public class ConfigReader {
     private String mobileDeviceName;
     private String mobileAppPath;
 
+    private String run_test;
+    private String Platform;
+    private String SauceBrowswer;
+    private String environment;
+    private String Version;
+    private String SauceUsername;
+    private String sauceKey;
+
     public ConfigReader() {
 
         Properties prop = new Properties();
@@ -38,6 +46,16 @@ public class ConfigReader {
             this.mobileVersion = prop.getProperty("mobile_version");
             this.mobileAppPath = prop.getProperty("mobile_app_path");
             this.mobileDeviceName = prop.getProperty("mobile_device");
+
+            //this.url=prop.getProperty("url");
+            this.environment= prop.getProperty("run_test");
+            this.SauceBrowswer =prop.getProperty("browser");
+            this.Platform =prop.getProperty("platform");
+            this.Version = prop.getProperty("version");
+            this.chromeDriverPath=prop.getProperty("chrome_driver_path");
+            this.SauceUsername=prop.getProperty("sauce_username");
+            this.sauceKey=prop.getProperty("sauce_key");
+
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -81,4 +99,17 @@ public class ConfigReader {
     public String getMobileAppPath() {
         return mobileAppPath;
     }
+
+    public String getEnvironment(){ return environment; }
+
+    public String getSauceBrowswer(){return SauceBrowswer;}
+
+    public String getPlatform(){return Platform;}
+
+    public String getVersion() { return Version; }
+
+    public String getSauceUsername(){return SauceUsername;}
+
+    public String getSauceKey() { return sauceKey; }
 }
+

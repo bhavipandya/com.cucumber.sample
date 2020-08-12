@@ -11,20 +11,18 @@ import org.testng.Assert;
 public class darkSkySD {
 
  private darkSkyHomePage darkSkyHomePage= new darkSkyHomePage();
+
 @Given("^I am on DarkSky Home Page$")
 public void setDarkSkyHomePage(){
     Assert.assertEquals(darkSkyHomePage.searchbutton(),true);
 
 }
 
-
-
  @When("^I am on the darksky homepage page$")
  public void darkskyhomepage()
  {
      darkSkyHomePage.clickOndarkSkyAPIlink();
  }
-
 
  @Given("^I am on the darksky Register page$")
     public void RegisterPage(){
@@ -45,12 +43,8 @@ public void setDarkSkyHomePage(){
     public void VerifyRegisterPage(){
      String expected =darkSkyHomePage.getTextFromElement(By.xpath("//h1[@class='stand-alone title']"));
 
-
        Assert.assertEquals(expected, "Register");
     }
-
-
-
 
 @Then("^I verify current temp is not greater or less then temps from daily timeline$")
     public void temp(){
